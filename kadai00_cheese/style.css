@@ -1,0 +1,301 @@
+
+header {
+    /*padding: 10px 40px;*/
+    display: flex; /*中のロゴとナビゲーションを横並びにするため*/
+    align-items: center;
+    justify-content: space-between;/*ヘッダーの両端に配置するため*/
+    padding: 1px 30px;
+}
+
+header .logo {
+    display: block; /*サイズを柔軟に指定するためにブロック要素に変更*/
+}
+
+header .logo .img {
+    display: block;
+    height: 50px;/*画像の高さ。横幅は高さに応じて柔軟に*/
+}
+
+header nav ul {
+    display: flex; /*タグを横並びにするため*/
+    align-items: center;
+    gap: 50px;/*タグ同士の間の間隔*/
+    /*padding-left:0;*/
+}
+
+header nav li { list-style: none;}
+
+header nav a {
+    font-size: 21px;
+    color: black;
+    text-decoration: none;
+    font-weight: 400;
+}
+
+header nav a:hover { /*hover疑似クラスに指定を加える*/
+        color: blue;
+        text-decoration: underline;
+}
+
+footer {
+    height: 60px;
+    background-color: #707070;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+}
+
+.mainvisual {
+    color: #fff; /*テキストの色*/
+    text-align: center;
+    background-image: url(img/mainbg.png);
+    background-size: cover;/*セクション全体に画像を表示する*/
+    height: 640px;
+    display: flex;/*２つのテキストを縦に並べ、中央に配置するため*/
+    flex-direction: column;/*縦並びに*/
+    align-items: center;
+    justify-content: center; /*上下左右中央揃えに*/
+    position: relative;
+}
+
+.mainvisual h2 {
+        font-size: 48px;
+        font-weight: 700;
+}
+
+.mainvisual p {
+        font-size: 32px;
+        font-weight: 400;
+        margin-top: 30px;/*テキスト同士の間隔を設けるため*/
+        margin-bottom: 30px;
+}
+
+.main-section {
+    padding: 0px 0 0px;/*パディング*/
+}
+
+.main-section .container{
+    text-align: center;
+    max-width: 1160px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+.main-section .section-title-yellow {
+    color: #ffd61a;
+    font-size: 24px;
+    font-weight: 700;
+    margin-top: 30px;
+    margin-bottom: 60px;
+}
+
+.main-section .section-title-black {
+    color: black;
+    font-size: 24px;
+    font-weight: 700;
+    margin-top: 30px;
+    margin-bottom: 60px;
+}
+
+.main-section h3 {
+    color: #222222;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.main-section span {
+    color: black;
+    font-size: 18px;
+    letter-spacing: 0.0em;
+    display: block;/*spanはブロック要素に変更*/
+    margin-top: 30px;
+    margin-bottom: 60px;
+}
+
+.main-section p {
+    margin-bottom: 40px;
+}
+
+/* AboutのCSS*/
+.main-text {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.image img {
+    border-radius: 10px;
+    max-width: 100%;
+    width: 100%;
+}
+
+/* CourseのCSS*/
+.course {
+    padding: 0;
+    margin: 0;
+}
+
+.course-item, .course-item-reverse {
+    background-color: #fafafa;
+    display: flex;
+    align-items: center;/*縦の揃え方*/
+    width: 100%;
+    justify-content: center;
+    gap: 0;
+}
+
+.course-image, .course-body, .course-body-reverse {
+    width: 50%;
+    margin: 0;
+}
+
+.course-image img {
+    width: 100%;
+    display: block;
+}
+
+.course-item-reverse{
+    flex-direction: row-reverse;
+}
+
+.course-body {
+    padding-left: 50px;
+    box-sizing: border-box;
+}
+.course-body-reverse {
+    box-sizing: border-box;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    align-items: flex-end;
+    padding-right: 50px;    
+}
+
+.course-body-reverse h3, 
+.course-body-reverse p {
+    text-align: left; 
+}
+
+.item {
+    background: #fafafa;
+    padding: auto 0 auto 50px;
+}
+
+/* NewsのCSS*/
+.news-list {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 60px;
+}
+
+.news-item {
+    width: 400px;
+    margin: 30px;
+    text-align: left;
+}
+
+.news-item: hover {
+    opacity: 0.8;
+}
+
+.news-item .date {
+    margin: 30px 0 24px;
+    text-align: left;
+}
+
+.news-item .text {
+    font-size: 15px;
+}
+
+.btn-wrap {
+    text-align: center;
+    margin: 0px auto 60px;
+}
+
+.btn-more {
+    display: inline-block;
+}
+
+/*accessのセクションcss*/
+.container-access {
+    background-color: #fafafa;/*要追加!*/
+    text-align: center;
+    padding: 60px 0;
+}
+
+.container-access .map {
+        border-radius: 40px;/*角を丸くする*/
+        overflow: hidden;
+        iframe {
+            width: 100%;
+            /*height: 400px;*/
+            aspect-ratio: 5/3;
+        }
+}
+
+.container-access .access-info {
+    display: grid;
+    grid-template-columns: 150px 400px;
+    text-align: left;
+    margin: 60px auto;
+    width: 550px; 
+    row-gap: 10px;
+}
+
+/*Contact*/
+.contact {
+    text-align: center;
+}
+
+.contact-table {
+    border-collapse: collapse;
+    margin: 1px auto 40px;
+    border-top: 1px solid #bfbfbf;
+}
+
+.contact-table th,
+.contact-table td {
+    width: 400px;
+    padding: 20px;
+    border-bottom: 1px solid #bfbfbf;
+    text-align: left;
+}
+
+.contact-table th {
+    width: 240px;
+    margin: 16px 0 64px;
+    background-color: #f2f2f2;
+    text-align: left;
+    vertical-align: middle;
+    font-weight: bold;   
+}
+
+.contact-table td input[type="text"],
+.contact-table td input[type="email"],
+.contact-table td select,
+.contact-table td textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+contact-table td textarea {
+    height: 150px;
+}
+
+button {
+    font-size: 18px;
+    display: inline-block;
+    color: #fff;
+    background-color: #ffd61a;
+    border: none;/*buttonタグはデフォルトで立体なボーダーが指定されてるので*/
+    padding: 1em 2em;
+    border-radius: 0px;
+    margin: 0px auto 60px;
+    &:hover {
+        background-color: #dacd8f;
+    }
+}
+

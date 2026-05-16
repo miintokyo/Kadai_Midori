@@ -1,0 +1,148 @@
+
+body {
+    font-family: sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f0f0f0;
+}
+
+.top-bar {
+    height: 200px;
+    width: 1420px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center; /*vertically */
+    margin-bottom: 20px;
+    background-color: white;
+    padding-bottom: 10px;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.main-logo {
+    width: 800px;
+    height: auto;
+}
+
+.asobikata {
+    text-align: left;
+    font-size: 22px;
+    margin-left: 10px;
+}
+
+.start {
+    margin: auto 60px;
+}
+
+table { 
+    text-align: center;
+    width: 300px;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+canvas {
+    border: 5px solid #333;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.instructions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    padding: 15px;
+    background: white;
+    border-radius: 5px;
+    max-width: 500px;
+    margin-bottom: 30px;
+}
+
+button {
+    font-size: 30px;
+    margin-bottom: 25px;
+}
+
+.main-container {
+    display: flex;
+    width: 100%;
+    align-items: flex-start;
+    text-align: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+#video-column, #emoji-column {
+    width: 650px;         /* Matches your camera width */
+    height: 600px;        /* Matches your camera height */
+    background-color: white;
+    border: 5px solid #333;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px 2px;
+    justify-content: space-between;
+    box-sizing: border-box;
+    align-items: center
+}
+
+#video-column h3, #emoji-column h3 {
+    margin: 0;
+    font-size: 35px;
+}
+
+#video-column canvas {
+        order: 2;}
+
+#video-column h3 { order: 1; }
+#myfinalhand { order: 3; }
+
+#video-column canvas, #emoji-display {
+    margin: auto 0;
+    /* Instead of 100%, let's let Flexbox handle the size */
+    /*max-width: 100%;
+    object-fit: contain; /* Use 'contain' to see the whole camera, 'cover' to fill the box */
+    /*margin: auto;        /* The magic "center me" button for canvas */
+}
+
+#emoji-display {
+    font-size: 60px;
+    align-items: center;
+}
+
+#vs-container {
+    display: flex;
+    width: 100px;         /* Matches your camera width */
+    height: 600px;        /* Matches your camera height */    
+    font-size: 40px;
+    font-weight: bold;
+    color: #ff4757; /* A nice red color for the VS */
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+#myfinalhand, #pcfinalhand {
+    color: lightgrey;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+#counter {
+    display: flex;
+    margin-top: 20px;
+    width: 1412px;
+    height: 150px;
+    border: 1px solid lightgrey;
+    border-radius: 8px;
+    color: lightgrey;
+    justify-content: center;
+    align-items: center;
+    font-size: 35px;
+    text-align: center;
+    font-weight: bold;
+}
+
