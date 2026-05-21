@@ -1,0 +1,144 @@
+h1 {
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 70px;
+    color: white;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.scanner {
+    width: 300px;/**/
+    height: 400px;/**/
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /*horizontal centering*/
+    align-items: center; /*vertical centering*/
+    margin: 0;
+}
+
+.video {
+    width: 300px;
+    height: 300px;
+    background-color: whitesmoke;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#video{
+    width: 260px;
+    height: 260px;
+    background-color: lightgray;
+    object-fit: cover;
+    border-radius: inherit;
+}
+
+.message {
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    color: darkcyan;
+    margin: 10px;
+    background-color: white;
+}
+
+#scan-message {
+        font-size: 24px;
+        text-align: center;    
+        font-weight: bold;
+}
+
+:root {
+    --corner-color: darkcyan;
+    --corner-weight: 4px;
+    --corner-size: 40px;
+}
+
+.corner {
+    width: var(--corner-size);
+    height: var(--corner-size);
+    position: absolute;
+}
+
+.corner.top-left {
+    border-top: var(--corner-weight) solid var(--corner-color);
+    border-left: var(--corner-weight) solid var(--corner-color);
+    top: 0;
+    left: 0;
+}
+
+.corner.top-right {
+    border-top: var(--corner-weight) solid var(--corner-color);
+    border-right: var(--corner-weight) solid var(--corner-color);
+    top: 0;
+    right: 0;
+}
+
+.corner.bottom-right {
+    border-bottom: var(--corner-weight) solid var(--corner-color);
+    border-right: var(--corner-weight) solid var(--corner-color);
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+.corner.bottom-left {
+    border-bottom: var(--corner-weight) solid var(--corner-color);
+    border-left: var(--corner-weight) solid var(--corner-color);
+    bottom: 0;
+    left: 0;
+}
+
+#startvideobtn {
+    margin: 20px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.scanner.authenticated .video {
+    border-radius: 50%;
+    background-color: #E8824A;
+    transition: border-radius 0.6s ease, background-color 0.6s ease;
+}
+
+.scanner.authenticated .corner {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.scanner.authenticated #scan-message {
+    color: darkgreen;
+}
+
+.scanner.unknown .video {
+    border-radius: 50%;
+    background-color: darkred;
+    transition: border-radius 0.6s ease, background-color 0.6s ease;
+}
+
+.scanner.unknown #scan-message {
+    color: red;
+}
+
+.scanner.base .video {
+    border-radius: 0%;
+    background-color: darkcyan
+}
+
+.scanner.base .corner {
+    opacity: 100;
+}
+
+.scanner.base #scan-message {
+    color: darkcyan;
+}

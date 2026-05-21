@@ -4,10 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Face Authentification</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/face-api.js@0.22.2/dist/face-api.min.js"></script>
+
 </head>
+
 <body>
     <h1>User Authentification</h1>
-    <div>Video</div>
-    
+    <div class="scanner">
+        <div class="video">
+            <video id="video" autoplay playsinline muted></video>
+            <div class="corner top-left"></div>
+            <div class="corner top-right"></div>
+            <div class="corner bottom-left"></div>
+            <div class="corner bottom-right"></div>
+        </div>
+        <div class="message">
+            <p id ="scan-message">Scanning...</p>
+        </div>
+    </div>
+
+    <button id="startvideobtn">Start Camera</button>
+    <script src="Faces.js"></script>
 </body>
 </html>
