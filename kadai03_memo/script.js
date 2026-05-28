@@ -30,7 +30,7 @@ renderSidebar()
 //     //Write function for displaying the profileRecord div and journalMemo div textareas/buttons for the new friend
 //     document.querySelector('#profile-record').slideDown(500);
 //     document.querySelector('#journal-record').slideDown(900);    
-// }
+// } 
 
 const addFriendbtn = document.getElementById("addFriend")
 
