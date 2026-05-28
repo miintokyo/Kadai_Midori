@@ -44,13 +44,16 @@ async function loadModels(){//please download the AI weight files from faceapi i
 
 loadModels().then(() => loadKnownFaces())
 
+let isProcessing = false
+
 async function detectFace(){ 
     // Define an async function called detectFace. 
     console.log('detectFace running')
     // Log a debug message. 
     setInterval(async () => { // the async before the => means that the  
-        if (video.readyState === 4){
+        if (isProcessing) return
     // use of await within the "arrow" function is enabled?? 
+        if (video.readyState === 4){
         const detections = await faceapi.detectAllFaces(video, new faceapi.SsdMobilenetv1Options({ minConfidenceScore: 0.3 }))//Looks at the frame in the video
         // take the current frame from the video element, 
         // run Face API's face detection on it, and log whatever it finds
@@ -65,19 +68,27 @@ async function detectFace(){
                         const match = faceMatcher.findBestMatch(liveDetection.descriptor)
                         // console.log('match:', match.label)
                         if(match.label === 'Midori') {
+                            isProcessing = true;
                             document.getElementById('scan-message').innerHTML = 'Hello Midori!'
                             document.querySelector('.scanner').classList.add('authenticated')
+                            setTimeout(() => {
+                                document.getElementById('scan-message').innerHTML = 'Scanning...'
+                                document.querySelector('.scanner').classList.remove('authenticated')
+                                document.documentElement.style.setProperty('--corner-color', 'darkcyan')
+                                isProcessing = false;
+                            },6001)
                         } else {
+                            isProcessing = true;
                             document.getElementById('scan-message').innerHTML = 'Face not recognized. Please register yourself.'
                             document.querySelector('.scanner').classList.add('unknown')
                             console.log(document.querySelector('#scanner').classList)
+                            setTimeout(() => {
+                                document.getElementById('scan-message').innerHTML = 'Scanning...'
+                                document.querySelector('.scanner').classList.remove('unknown')
+                                document.documentElement.style.setProperty('--corner-color', 'darkcyan')
+                                isProcessing = false;
+                            },6001)                        
                         }
-                        setTimeout(() => {
-                            document.getElementById('scan-message').innerHTML = 'Scanning...'
-                            document.querySelector('.scanner').classList.remove
-                            document.querySelector('.scanner').classList.add('base')
-                            document.documentElement.style.setProperty('--corner-color', 'darkcyan')
-                        },6000)
                     }
                 }
 
@@ -87,19 +98,25 @@ async function detectFace(){
     // every 300 milliseconds, 
 }
 
+let knownPeople = ['Midori', 'Snoopy', 'Pigggy']
 
 async function loadKnownFaces() {
-    const image = await faceapi.fetchImage('./known_faces/Midori.jpg')
-    const detection = await faceapi.detectSingleFace(image)
-        .withFaceLandmarks()
-        .withFaceDescriptor()
-    console.log('descriptor', detection.descriptor)
-    const labelledDescriptor = new faceapi.LabeledFaceDescriptors(
-        'Midori',
-        [detection.descriptor]
-    )
+    const labelledDescriptors = [] //empty collection
+
+    for (const name of knownPeople){
+
+        const image = await faceapi.fetchImage(`./known_faces/${name}.jpg`)
+        const detection = await faceapi.detectSingleFace(image)
+            .withFaceLandmarks()
+            .withFaceDescriptor()
+
+        labelledDescriptors.push(
+            new faceapi.LabeledFaceDescriptors(name, [detection.descriptor])
+        )
+    }
     faceMatcher = new faceapi.FaceMatcher(labelledDescriptor)
     console.log('faceMatcher ready: ', faceMatcher)
+
 }
 
 
