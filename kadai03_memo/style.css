@@ -1,0 +1,108 @@
+
+.app{
+    display:flex;
+    flex-direction: row;
+    background-color: #F5F0E8;
+    height: 98vh;
+}
+
+aside {
+    flex: 0 0 25%;
+    background-color: #FDFAF4;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 6px;
+    overflow-y: scroll;
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.1);
+    /*border: 1px solid #fafafa98;*/
+}
+
+.profile-record {
+    flex: 0 0 40%;
+    background-color: #FDFAF4;
+    border-radius: 6px;
+    overflow-y: scroll;
+    margin: 10px;
+    padding: 10px;
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* .middle {
+    flex: 0 0 40%;
+    display:flex;
+    flex-direction: column;
+    border-radius: 6px;
+    margin: 10px;
+}
+
+.profile-record {
+    flex: 1.2 1.2 40%;
+    max-height: 60%;
+    background-color: #FDFAF4;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    overflow-y: scroll;
+    padding: 10px;
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.1);
+} */
+
+.journal-list {
+    flex: auto;
+    background-color: #FDFAF4;
+    border-radius: 6px;    
+    padding: 10px;
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.1);
+}
+
+.journal-record {
+    flex: auto;
+    background-color: #FDFAF4;
+    margin: 10px;    
+    border-radius: 6px;
+    padding: 10px;
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.1);
+}
+
+.profile-record, .journal-record{
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    display: block;
+}
+
+.fade-in {
+    opacity: 1;
+}
+
+
+table {
+    width: 100%;
+    table-layout fixed;
+    margin: 10px 5px;
+}
+
+.friend-row {
+    padding: 8px 3px;
+    border-bottom: 1px dotted lightgray;
+    cursor: pointer;
+}
+
+.friend-name {
+    width: 85%;
+    font-size: 20px;
+}
+
+.delete-button {
+    width: 15%;
+    color: #c4703f;
+    text-align: center;
+    font-size: 18px;
+}
+
+.delete-button:hover {
+    font-weight: bold;
+}
+
+textarea {
+    width: 90%;
+    height: 90%;
+}

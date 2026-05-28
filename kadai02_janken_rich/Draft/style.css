@@ -126,6 +126,11 @@ body{
     transition: border-radius 0.6s ease, background-color 0.6s ease;
 }
 
+.scanner.unknown .corner {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
 .scanner.unknown #scan-message {
     color: red;
 }
