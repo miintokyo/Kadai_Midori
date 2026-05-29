@@ -1,9 +1,11 @@
 
 //$('.app').hide().fadeIn(1000); LATER!
 
-const friendList = document.querySelector("#friendList") 
-let friends //for JSON stringify/parse
-const savedFriends = localStorage.getItem('LSfriendList') //getItem (in JSON form)
+const friendList = document.querySelector("#friendList") //div class 
+
+let friends //array object, after JSON parsed
+const savedFriends = localStorage.getItem('LSfriendList') //the stringified Item from local Storage
+
 
 let selectedFriend = null //variable for "which friend is being selected?""
 
@@ -98,7 +100,14 @@ function renderSidebar() {
 }
 
 function deleteFriend(id){
-    friends = friends.filter(friend => friend.id !== id)
+    friends = friends.filter(friend => friend.id !== id) // 
+    //Take each friend, look at their ID, and find which ones DO NOT match the ID
+    //Then keep those FALSE ones (the IDs that DO NOT match)
+    
+    //short for below;
+    //friends = friends.filter(function(friend){
+    //    return friend.id !== id;
+    //});
     localStorage.setItem('LSfriendList', JSON.stringify(friends))    
     friendList.innerHTML=''
     renderSidebar()        
