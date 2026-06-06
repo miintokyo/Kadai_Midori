@@ -1,0 +1,192 @@
+/* .inputArea {
+    width: 90%;
+    margin: 5px auto 30px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+} */
+
+.top{
+    display: flex;
+    width: 80%;
+    gap: 10px;
+    margin: 0 auto;
+}
+
+.form {
+    flex: 0.9;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.button{
+    /* background-color: aqua; */
+    flex: 0.1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+input[type="text"]{
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0px;/*fix for the overflowing box*/
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box; /**/
+}
+
+input:focus, textarea:focus{
+    border-color: #007BFF;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    outline: none;
+    border-width: 3px   ;
+}
+
+label {
+    font-size: 16px;
+}
+
+.button{
+    display: flex;
+    flex-direction: column;
+}
+
+#saveBtn, #clearBtn{
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 15px;
+    width: 170px;
+    margin: 0 0 0 30px;
+}
+
+#saveBtn {
+    background-color: #28a745;
+    color: white;
+}
+
+#clearBtn {
+    background-color: grey;
+}
+
+#saveBtn:hover{
+    background-color: #218838;
+}
+
+#clearBtn:hover{
+    background-color: rgba(103, 103, 103, 0.937);
+}
+
+button:active{
+    background-color: #1e7e34;
+    transform: scale(0.98);
+}
+
+.yamaName {
+    width: 100%;
+    /* background-color: antiquewhite; */
+    padding: 0 5px;
+    box-sizing: border-box;
+}
+
+.yamaDetail{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    /*justify-content: space-between;*/
+    gap: 5px;
+}
+
+.Info, .Trips{
+    flex: 1;/**/
+    /*flex:auto;/* */
+    margin: 5px 5px;
+    /* background-color: lightgreen; */
+    height: auto;
+}
+
+textarea {
+    width: 100%;
+    height: 100px;
+    opacity: 80%;
+    box-sizing: border-box;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+input[type="radio"]{
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #007BFF;
+    border-radius: 50%;
+    outline: none;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+input[type="radio"]:checked {
+    background-color:#007BFF;
+    border-color: #007BFF;
+}
+
+.db{
+    width: 80%;
+    margin: 50px auto;
+    background-color: aliceblue;
+}
+
+.selectRecords{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+
+table {
+    width: 100%;
+    margin: 7px;
+    table-layout: fixed;
+}
+
+td:nth-child(1) {
+    width: 200px;
+    font-weight: bold;
+}
+
+td:nth-child(4) {
+    width: 50px;
+    color: darkblue;
+}
+
+td:nth-child(5) {
+    width: 40px;
+    color: darkred;
+}
+
+td {
+    border-bottom: gray solid 1px;
+    /* Crucial for text wrapping */
+    white-space: normal;       /* Allows text to wrap to the next line naturally */
+    word-break: break-word;    /* Forces long words (like URLs) to break if they hit the edge */
+    overflow-wrap: break-word; /* Extra browser compatibility for breaking long words */
+    white-space: pre-wrap; /*Recognize line breaks*/
+}
+
+tr:hover {background-color: lightgray}
+
+.selectRecords{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
