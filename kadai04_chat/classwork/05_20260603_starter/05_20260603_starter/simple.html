@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <title>Firebase:v9:Chatアプリ</title>
+    <style>
+      body {
+        font-family: system-ui, "Hiragino Sans", "Noto Sans JP", sans-serif;
+        background: #eef1f6;
+        color: #20242e;
+        margin: 0;
+        padding: 28px 14px;
+      }
+      .chat {
+        max-width: 440px;
+        margin: 0 auto;
+        background: #fff;
+        border-radius: 14px;
+        box-shadow: 0 8px 26px rgba(31, 41, 84, 0.12);
+        padding: 22px;
+      }
+      .chat::before {
+        content: "💬 Chat";
+        display: block;
+        font-weight: 700;
+        font-size: 1.05rem;
+        margin-bottom: 14px;
+      }
+      .chat > div {
+        margin-bottom: 10px;
+      }
+      .chat input[type="text"] {
+        width: 60%;
+        border: 1px solid #cbd3e1;
+        border-radius: 8px;
+        padding: 7px 10px;
+        font: inherit;
+        font-size: 0.92rem;
+      }
+      .chat textarea {
+        width: 100%;
+        box-sizing: border-box;
+        border: 1px solid #cbd3e1;
+        border-radius: 8px;
+        padding: 8px 10px;
+        font: inherit;
+        font-size: 0.92rem;
+        resize: vertical;
+      }
+      .chat button {
+        display: block;
+        margin-top: 8px;
+        margin-left: auto;
+        background: #2d4084;
+        color: #fff;
+        border: none;
+        border-radius: 8px;
+        padding: 8px 22px;
+        font: inherit;
+        font-size: 0.92rem;
+        cursor: pointer;
+      }
+      .chat button:hover {
+        background: #243466;
+      }
+      #output {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+      #output p {
+        margin: 0;
+        background: #eef2ff;
+        border-radius: 10px;
+        padding: 9px 12px;
+        font-size: 0.9rem;
+        line-height: 1.55;
+        word-break: break-word;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- コンテンツ表示画面 -->
+
+    <div class="chat">
+      <div>名前：<input type="text" id="userName" /></div>
+      <div>
+        <textarea id="text" cols="30" rows="10"></textarea>
+        <button id="send">送信</button>
+      </div>
+      <div id="output" style="overflow: auto; height: 300px"></div>
+    </div>
+    <!--/ コンテンツ表示画面 -->
+
+    <!-- JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- JQuery -->
+
+    <!--** 以下Firebase **-->
+    <script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-app.js";
+  import { getDatabase, ref, push, set, onChildAdded, update, remove, onChildChanged,  onChildRemoved } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-database.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+    const firebaseConfig = {
+    apiKey: "AIzaSyBWWqd29B1TI7CCoCfo-C7X922yfv_HUf8",
+    authDomain: "gs-app-d31c2.firebaseapp.com",
+    databaseURL: "https://gs-app-d31c2-default-rtdb.firebaseio.com",
+    projectId: "gs-app-d31c2",
+    storageBucket: "gs-app-d31c2.firebasestorage.app",
+    messagingSenderId: "890057410251",
+    appId: "1:890057410251:web:8268793d7242c4ef473d4e"
+    };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const db    = getDatabase(app);   // ← 追加：Realtime Database に接続
+  const dbRef = ref(db, "chat");    // ← 追加：DB内の "chat" を使う. chat/memo1
+
+  //送信
+  //$("#send").on("click")
+  const send = document.querySelector("#send")
+  send.addEventListener("click", function(){
+    const message ={
+      userName: document.querySelector("#userName").value,
+      text: document.querySelector("#text").value,
+      timestamp: Date.now(),
+    }
+    //console.log(message);
+    const newPostRef = push(dbRef);//unique keyが生成されてる
+    set(newPostRef, message);//この場所にunique key, このメッセージを送る...これによってデータが更新されない。
+    document.querySelector("#userName").value = "";
+    document.querySelector("#text").value = "";
+
+  })
+
+  //受信
+  onChildAdded(dbRef, function(data){
+    const message = data.val();
+    const key = data.key;
+    console.log(data);
+    console.log(message, key);
+
+    const h = `<p>
+      ${message.userName}<br />
+      ${message.text}
+    </p>`//中に変数を入れられる
+  
+    $("#output").prepend(h);
+
+  });//dbRef = ref(db, "chat") - db内のChatを使う
+
+
+</script>
+  </body>
+</html>
