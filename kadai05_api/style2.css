@@ -1,0 +1,358 @@
+header{
+    display: flex;
+    background-color: #333;
+    padding: 0 20px;
+    font-family: sans-serif;
+    justify-content:space-between;
+    align-items: center;
+}
+
+.title{
+    color: White;
+}
+
+body{
+    display:flex;
+    flex-direction: column;
+    color: #202c2e;
+}
+
+main{
+    flex: 1;
+    overflow-y: auto; /*A scrollbar, only when full*/
+    background: #eef6f5;
+    margin: 0;
+    padding: 28px 14px;
+}
+
+.chatsection {
+    display: flex;
+    justify-content: space-between;
+    gap: 26px;
+}
+
+.mapsection {
+    flex: 1;
+    height: 500px;
+}
+
+
+.chats {
+    /* max-width: 440px; */
+    height:70vh;
+    overflow-y:auto;
+    flex: 1;
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0/*x-offset*/ 8px/*y-offset*/ 26px/*blur*/ rgba(31,41,84,0.12)/*semi-transparent*/;
+    padding: 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px; /*space between messages*/
+}
+
+.chats p{
+    margin: 0;
+    background: #eefffc;
+    border-radius: 10px;
+    padding: 9px 12px;
+    font-size: 0.9rem;
+    line-height: 1.55;/*Spacing: 1.55 of font size*/
+    word-break: break-word;/*So long words don't overflow*/
+}
+
+.chat-header{
+    position:sticky;
+    top:0;
+    background:white;
+    padding:10px 0;
+    z-index:10;
+}
+
+.chat-header{
+    position:sticky;
+    top:0;
+    background:white;
+    padding:10px 0;
+    z-index:10;
+}
+
+.chats >div {/*For every div under .chat*/
+    margin-bottom: 10px;
+}
+
+.logo {
+    margin: 5px 10px;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+footer img {
+    height: 55px;
+    width: 55px;
+    object-fit: cover;
+    border-radius: 50px;
+}
+.input{
+    display: flex;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+nav ul li {
+    position: relative; /*Crutial: Anchor for the dropdown menu*/
+}
+
+nav ul li a, .dropbtn {
+    color: white;
+    text-decoration: none;
+    padding: 15px 20px;
+    display: inline-block;
+    background: none;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+nav ul li a:hover, .dropbtn:hover{
+    background-color: #555;
+}
+
+/*2. Dropdown Hidden State*/
+.dropdown-menu{
+    display: none;/*kept hidden until hover*/
+    position: absolute; /*Positions menu directly beneath parent*/
+    top: 100%; /*forces it exactly below header link*/
+    left: 0;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+    z-index: 100;/*Makes sure it sits on top of body content*/
+}
+
+/*Individual links inside the dropdown*/
+.dropdown-menu a{
+    color: #333;
+    padding: 12px 16px;
+    display: block;
+}
+
+.dropdown-menu a:hover{
+    background-color: #f1f1f1;
+}
+
+/*3. The Magic: Show dropdown on hover*/
+.dropdown:hover .dropdown-menu{
+    display: block;
+}
+
+
+footer .input{
+    height: 130px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(208, 215, 218);
+    padding: 0 20px;
+    font-family: sans-serif;
+    box-shadow: 0/*x-offset*/ -8px/*y-offset*/ 7px/*blur*/ rgba(31,41,84,0.22)/*semi-transparent*/;    
+}
+
+.msgboxes{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.msg, .map {
+    border: 1px solid #cbdbe1;
+    border-radius: 8px;
+    margin: 3px 15px;
+}
+
+footer .input .msg input{
+    width: 100%;
+    padding: 7px 10px;
+    font-size: 0.92rem;
+    box-sizing: border-box;/**/
+    resize: vertical;
+}
+
+footer .input .map input{
+    width: 100%;
+    padding: 3px 10px;
+    font-size: 0.92rem;
+    box-sizing: border-box;/**/
+}
+
+.sendbtn{
+    display: block;
+    margin-top: 8px;
+    background: #717172;
+    color: #fff;
+    font-size: 1.12rem;
+    border: none;
+    border-radius: 8px;
+    padding: 18px 20px;
+}
+
+.sendbtn:hover {
+    opacity: 0.9;
+    box-shadow: 2px 2px 2px rgba(0,0,0, 0.8);
+    cursor: pointer;
+}
+
+.topics {
+    color: rgb(88, 88, 88);
+    padding: 0 20px;
+}
+
+.topics input[type="radio"]{
+    display: none;
+}
+
+input[type="text"]{
+    border-radius: 10px;
+    border: 1px solid grey;   
+}
+
+.topics label {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 20px;
+    background: #e9eef0;
+    cursor: pointer;
+    margin-right: 6px;
+    margin-bottom: 5px;
+    transition: 0.2s;
+}
+
+#foods:checked {
+    accent-color: green;}
+
+#foods:checked + label{
+    background: #c4ffb1;
+    color: rgb(2, 136, 2);
+    font-weight: bolder;}
+
+#activities:checked{
+    accent-color: blue;
+}
+
+#activities:checked + label{
+    background: rgb(172, 218, 233);
+    color: darkblue;
+    font-weight: bolder;
+}
+
+#shopping:checked{
+    accent-color: magenta;
+}
+
+#shopping:checked + label{
+    background: rgb(252, 199, 208);
+    color: darkred;
+    font-weight: bolder;
+}
+
+#random:checked{
+    accent-color: orangered;
+}
+
+#random:checked + label{
+    background: rgb(238, 202, 135);
+    color: orangered;
+    font-weight: bolder;
+}
+
+small{
+    font-size: smaller;
+}
+
+.chats p {
+    background-color: rgb(221, 221, 221);
+}
+
+.foods p {
+    background-color: #c4ffb1;
+}
+
+.activities p {
+    background-color: rgb(151, 210, 229);
+}
+
+.shopping p {
+    background-color: rgb(252, 199, 208) ;
+}
+
+.random p {
+    background-color:  rgb(238, 202, 135);
+}
+
+@keyframes popIn{
+    from{
+        opacity:0;
+        transform:translateY(10px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.message{
+    animation:popIn .25s ease;
+}
+
+.message-content{
+    display:flex;
+    gap:10px;
+    align-items:flex-start;
+}
+
+#map{
+    width:100%;
+    height:100%;
+}
+
+.map-card{
+    margin-top:8px;
+    padding:10px;
+    background:white;
+    border:1px solid #d8d8d8;
+    border-radius:10px;
+    box-shadow:0 2px 5px rgba(0,0,0,.08);
+}
+
+.map-card a{
+    text-decoration:none;
+}
+
+.reaction-bar{
+    display:flex;
+    gap:6px;
+    margin-top:6px;
+}
+
+.reaction-bar button{
+    border:none;
+    background:#f1f3f5;
+    border-radius:16px;
+    padding:4px 10px;
+    cursor:pointer;
+}
+
+.selected {
+    background: #d6d6d6 !important;
+    font-weight: bold;
+    border: 3px solid rgb(116, 6, 79);
+}

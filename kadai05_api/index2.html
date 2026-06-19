@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <!-- <li><a href="home">Home</a></li> -->
+                <li class="dropdown">
+                    <button class="dropbtn">Filter Topics ▼</button>
+                    <div class="dropdown-menu">
+                        <a href="#All Topics">All Topics</a>
+                        <a href="#Foods">Foods</a>
+                        <a href="#Activities">Activities</a>
+                        <a href="#Shopping">Shopping</a>
+                        <a href="#Random">Random</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+        <div class="title">TRAVEL CHAT</div>
+    </header>
+
+
+    <main>
+        <div class="chatsection">
+            <div id="chats" class="chats">
+
+                <div class="chat-header">
+                    Travel plans...💬 (<span id="messageCount">0</span>)
+                </div>
+            </div>
+
+            <div class="mapsection">
+                <div id="map"></div>
+            </div>
+            
+        </div>
+    </main>
+
+    <footer>
+        <div class="input">
+            <div class="logo"><img src="MidoriK.JPG" alt="" ></div>
+            <div class="msgboxes">
+                <div class="topics">
+                    <input type="radio" name="topics" id="foods"><label for ="foods">Food</label>
+                    <input type="radio" name="topics" id="activities"><label for ="activities">Activities</label>
+                    <input type="radio" name="topics" id="shopping"><label for = "shopping">Shopping</label>
+                    <input type="radio" name="topics" id="random"><label for ="random">Random</label>
+                </div>
+                <div class="msg"><input type="text" placeholder="Message" class="msgtext"></div>
+                <div class="map"><input type="text" placeholder="Place name or address..." class="maptext"></div>
+            </div>
+            <div><button class="sendbtn">Send</button></div>
+        </div>
+    </footer>
+
+    <script type="module" src="script3.js"></script>
+    <!-- JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDdMRILNIEC1Gn3P3LmmBoHOKSioUHQWQ8"></script>
+
+</body>
+</html>
