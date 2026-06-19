@@ -6,7 +6,7 @@ import { getDatabase, ref, push, set, onChildAdded, update, remove, onChildChang
 
 // Firebase configuration settings identifying your specific Realtime Database project
 const firebaseConfig = {
-    apiKey: "AIzaSyBWWqd29B1TI7CCoCfo-C7X922yfv_HUf8",
+    apiKey: "XXX",
     authDomain: "gs-app-d31c2.firebaseapp.com",
     databaseURL: "https://gs-app-d31c2-default-rtdb.firebaseio.com",
     projectId: "gs-app-d31c2",
